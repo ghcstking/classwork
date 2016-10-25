@@ -1,24 +1,26 @@
 public static double[] getStats(double[] array){
     	double[] stats = new double[6];
     	double sum = 0;
+    	double min = array[0];
     	int aboveCtr = 0;
     	int belowCtr = 0;
+    	
+    	sortIncreasing(array);
+    	
+    	// mean
     	for (int i = 0; i < array.length; i++) {
     		sum += array[i];
     	}
     	stats[0] = sum/array.length;
+    	
+    	// max
+    	stats[1] = array[array.length-1];
+    	
+    	// min
+    	stats[2] = array[0];
+    	
     	for (int i = 0; i < array.length; i++) {
-    		if (array[i] > stats[1]) {
-    			stats[1] = array[i];
-    		}
-    	}
-    	for (int i = 0; i < array.length; i++) {
-    		if (array[i] < stats[2]) {
-    			stats[2] = array[i];
-    		}
-    	}
-    	for (int i = 0; i < array.length; i++) {
-    		if (array[i] >= sum/array.length) {
+    		if (array[i] >= stats[0]) {
     			aboveCtr++;
     		}
     		else {
@@ -28,16 +30,7 @@ public static double[] getStats(double[] array){
     	stats[4] = aboveCtr;
     	stats[5] = belowCtr;
     	
-    	for (int i = 0; i < array.length - 1; i++) {    		
-			for (int x = 0; x < array.length - 1; x++) {
-			    double current = array[x];
-	    		double next = array[x + 1];
-	    		if (current > next) { 
-	    			array[x + 1] = current;
-	    			array[x] = next;
-	    		}
-			}
-    	}
+
     	if (array.length % 2 == 0) {
     		double first = array[array.length/2];
     		double second = array[(array.length/2) - 1];
@@ -58,3 +51,16 @@ public static double[] getStats(double[] array){
          * index 5 = the number of values below the mean
          * */
         return stats;
+}
+public static double[] sortIncreasing(double[] arr) {
+	for (int i = 0; i < array.length - 1; i++) {    		
+			for (int x = 0; x < array.length - 1; x++) {
+			    double current = array[x];
+	    		double next = array[x + 1];
+	    		if (current > next) { 
+	    			array[x + 1] = current;
+	    			array[x] = next;
+	    		}
+			}
+    }
+}

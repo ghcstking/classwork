@@ -3,6 +3,7 @@ package arrays;
 public class ArrayMethods {
 	public static void main(String[] args) {
 		double[] arr = {2,3,4,9,11,12,15};
+		int[] array = {2,3,4,9,11,12,15};
 		// swap(arr, 0, arr.length-1);
 		//shuffle(arr);
 		//checkHalfway(arr, 12, 0, arr.length-1);
@@ -14,7 +15,7 @@ public class ArrayMethods {
 //					+ "of the array");
 //		}
 		//reverseOrder(arr);
-		System.out.println(countUnderBound(arr, 0));
+		// System.out.println(countUnderBound(arr, 0));
 	}
 	public static void reverseOrder(int[] array){
 		int[] reversed = new int[array.length];
@@ -44,10 +45,6 @@ public class ArrayMethods {
 		}
 		return ctr;
 	}
-	
-	
-	
-	
 	public static boolean checkHalfway(int[] array, int searchValue, int begin, int end) {
 		return searchValue < array[(begin+end+1)/2];
 	}
@@ -56,5 +53,21 @@ public class ArrayMethods {
 			int random = (int)(Math.random()*array.length);
 			swap(array, i, random);
 		}
+	}
+	public static int[] getSubArray(int[] array, int startIndex, int endIndex) {
+		int[] subArray = new int[endIndex-startIndex+1];
+		for (int i = 0; i < subArray.length; i++) {
+			subArray[i] = array[startIndex + 1];
+		}
+		return subArray;
+	}
+	public static boolean contains(int[] arr, int[] subArray) {
+		int j = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == subArray[j]) {
+				
+			}
+		}
+		return false;
 	}
 }
