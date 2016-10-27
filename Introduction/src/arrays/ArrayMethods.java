@@ -16,6 +16,30 @@ public class ArrayMethods {
 //		}
 		//reverseOrder(arr);
 		// System.out.println(countUnderBound(arr, 0));
+		//populateArray(array);
+		testPrimes(50);
+	}
+	public static void testPrimes(int num) {
+		boolean[] nums = new boolean[num];
+		int lastToCheck = (int) Math.sqrt(num);
+		for (int i = 0; i < num; i++) {
+			nums[i] = true;
+		}
+		nums[0] = false;
+		nums[1] = false;
+		int increment = 2;
+		boolean first = true;
+		for (int test = 2; test < num; test = test+increment) {
+			if (!first) {
+				nums[test] = false;
+			}
+			first = false;
+		}
+		for (int i = 0; i < nums.length; i++) {
+			if(nums[i]) {
+				System.out.println(i + ": " + nums[i]);
+			}
+		}
 	}
 	public static void reverseOrder(int[] array){
 		int[] reversed = new int[array.length];
@@ -61,13 +85,26 @@ public class ArrayMethods {
 		}
 		return subArray;
 	}
-	public static boolean contains(int[] arr, int[] subArray) {
-		int j = 0;
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] == subArray[j]) {
-				
+	public static boolean contains(int[] array, int num) {
+    	for (int i = 0; i < array.length; i++) {
+    		if (array[i] == num) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+	public static void populateArray(int[] source) {
+		int[] randArr = new int[source.length-1];
+		for (int i = 0; i < randArr.length; i++) {
+			int ran = source[(int) Math.random() * source.length];
+			while(contains(randArr,ran)) {
+				ran = source[(int) Math.random() * source.length];
 			}
+			randArr[i] = ran;
 		}
-		return false;
+		for (int i = 0; i < randArr.length; i++) {
+			System.out.println(randArr[i]);
+		}
 	}
+	
 }
