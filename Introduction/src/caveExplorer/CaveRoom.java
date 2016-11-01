@@ -1,3 +1,5 @@
+package caveExplorer;
+
 public class CaveRoom {
 
 	private String description;
