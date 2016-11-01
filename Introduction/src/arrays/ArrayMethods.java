@@ -27,17 +27,20 @@ public class ArrayMethods {
 		}
 		nums[0] = false;
 		nums[1] = false;
-		int increment = 2;
-		boolean first = true;
-		for (int test = 2; test < num; test = test+increment) {
-			if (!first) {
-				nums[test] = false;
+		for (int prime = 2; prime <= lastToCheck; prime++) {
+			// checks 2 - 7
+			if (nums[prime]) {
+				System.out.println(prime + " is prime, crossing off ");
+				for (int test = prime + prime; test < num; test = test+prime) {
+					nums[test] = false;
+					System.out.print(test + ", ");
+				}
 			}
-			first = false;
 		}
+		
 		for (int i = 0; i < nums.length; i++) {
 			if(nums[i]) {
-				System.out.println(i + ": " + nums[i]);
+				System.out.println(i + " is prime");
 			}
 		}
 	}
