@@ -30,10 +30,13 @@ public class PracticeStuff {
 		for (int row = r-1; row <= r+1; row++) {
 			for (int col = c-1; col <= c+1; col++) {
 				if(row != r && col != c) {
-					
+					if (row >= 0 && row < mines.length && col >= 0 && col < mines[0].length) {
+						
+					}
 				}
 			}
 		}
+		return null;
 	}
 
 	private static void createMines(boolean[][] mines, int num) {
