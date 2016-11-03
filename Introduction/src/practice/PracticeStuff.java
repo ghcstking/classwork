@@ -4,43 +4,48 @@ public class PracticeStuff {
 
 	
 	public static void main(String[] args) {
-		String[][] array2D = new String[10][12];
-		for (int first = 0; first < array2D.length; first++) {
-			for (int second = 0; second < array2D[first].length; second++) {
-				array2D[first][second] = " ";
+		boolean[][] mines = new boolean[6][6];
+		createMines(mines, 10);
+		String[][] field = new String[mines.length][mines[0].length];
+		matchValues(field, mines);
+		printPic(field);
+	}
+	
+	private static void matchValues(String[][] field, boolean[][] mines) {
+		for (int row = 0; row < field.length; row++) {
+			for (int col = 0; col < field[0].length; col++) {
+				if(mines[row][col]) {
+					field[row][col] = "X";
+				}
+				else {
+					field[row][col] = countAdjacent(mines, row, col);
+				}
 			}
 		}
-		for (int i = 0; i < array2D.length; i++) {
-			for (int j = 0; j < array2D[i].length; j++) {
-				int first = (int) (Math.random() * i);
-				int second = (int) (Math.random() * i);
-				array2D[first][second] = "~";
-			}
-		}
-		array2D[1][2] = "O";
-		array2D[0][2] = "|";
-		array2D[2][2] = "|";
-		array2D[1][1] = "—";
-		array2D[1][3] = "—";
-		array2D[0][1] = "\\";
-		array2D[2][3] = "\\";
-		array2D[0][3] = "/";
-		array2D[2][1] = "/";
 		
-		for (int first = 7; first < array2D.length; first++) {
-			for (int second = 0; second < array2D[first].length; second++) {
-				array2D[first][second] = "M";
+	}
+
+	private static String countAdjacent(boolean[][] mines, int r, int c) {
+		int count = 0;
+		for (int row = r-1; row <= r+1; row++) {
+			for (int col = c-1; col <= c+1; col++) {
+				if(row != r && col != c) {
+					
+				}
 			}
 		}
-		for (int col = 0; col < array2D[0].length; col++) {
-			array2D[0][col] = "_";
-			array2D[array2D.length-1][col] = "_";
+	}
+
+	private static void createMines(boolean[][] mines, int num) {
+		while(num > 0) {
+			int row = (int)(Math.random() * mines.length);
+			int col = (int)(Math.random() * mines[0].length);
+			if (!mines[row][col]) {
+				mines[row][col] = true;
+				num--;
+			}
 		}
-		for (int row = 1; row < array2D.length; row++) {
-			array2D[row][0] = "|";
-			array2D[row][array2D[0].length-1] = "|";
-		}
-		printPic(array2D);
+		
 	}
 	public static void printPic(String[][] arr) {
 		for (int first = 0; first < arr.length; first++) {
@@ -49,6 +54,23 @@ public class PracticeStuff {
 			}
 			System.out.println();
 		}
+	}
+	
+	public static void drawPic (String[][] array) {
+		for (int first = 7; first < array.length; first++) {
+			for (int second = 0; second < array[first].length; second++) {
+				array[first][second] = "M";
+			}
+		}
+		for (int col = 0; col < array[0].length; col++) {
+			array[0][col] = "_";
+			array[array.length-1][col] = "_";
+		}
+		for (int row = 1; row < array.length; row++) {
+			array[row][0] = "|";
+			array[row][array[0].length-1] = "|";
+		}
+		printPic(array);
 	}
 
 }
