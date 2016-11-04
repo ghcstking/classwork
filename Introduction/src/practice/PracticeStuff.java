@@ -4,6 +4,10 @@ public class PracticeStuff {
 
 	
 	public static void main(String[] args) {
+		mines();
+	}
+	
+	public static void mines() {
 		boolean[][] mines = new boolean[6][6];
 		createMines(mines, 10);
 		String[][] field = new String[mines.length][mines[0].length];
@@ -27,16 +31,40 @@ public class PracticeStuff {
 
 	private static String countAdjacent(boolean[][] mines, int r, int c) {
 		int count = 0;
-		for (int row = r-1; row <= r+1; row++) {
-			for (int col = c-1; col <= c+1; col++) {
-				if(row != r && col != c) {
-					if (row >= 0 && row < mines.length && col >= 0 && col < mines[0].length) {
-						
-					}
-				}
-			}
+//		for (int row = r-1; row <= r+1; row++) {
+//			for (int col = c-1; col <= c+1; col++) {
+//				if(row != r && col != c) {
+//					if (row >= 0 && row < mines.length && col >= 0 && col < mines[row].length) {
+//					}
+//				}
+//			}
+//		}
+		// method only checks elements in the 2d array
+//		for (int row = 0; row < mines.length; row++) {
+//			for (int col = 0; col < mines[row].length; col++) {
+//				if (Math.abs(row - r) + Math.abs(col - c) == 1 && mines[row][col]) {
+//					count++;
+//				}
+//			}
+//		}
+		// method checks ALL the elements
+		count+= validAndTrue(mines,r-1,c);
+		// above
+		count+= validAndTrue(mines,r+1, c);
+		// below
+		count+= validAndTrue(mines,r,c+1);
+		// right
+		count+= validAndTrue(mines,r,c-1);
+		// left
+		return count + "";
+	}
+
+	private static int validAndTrue(boolean[][] mines, int i, int j) {
+		if (i >= 0 && i < mines.length && j >= 0 && j < mines[i].length && mines[i][j]) {
+			return 1;
+			// checks if valid FIRST then if TRUE
 		}
-		return null;
+		return 0;
 	}
 
 	private static void createMines(boolean[][] mines, int num) {
