@@ -23,6 +23,7 @@ public class CaveExplorer {
 		caves[1][2].setConnection(CaveRoom.SOUTH, caves[2][2], new Door());
 		
 		inventory = new Inventory();
+printPic(caves);
 		startExploring();
 	}
 
@@ -35,5 +36,28 @@ public class CaveExplorer {
 			currentRoom.interpretInput(input);
 		}
 	}
+public static void printPic(String[][] arr) {
+String[][] newArr = new String[(arr.length * 4) + 1][(arr[0].length * 4) + 1];
+for (int row = 0; row < newArr.length; row++) {
+for (int col = 0; col < newArr[0].length; col++) {
+if (row%4 == 0) {
+newArr[row][col] = "-";
+}
+else {
+if (col%4 == 0) {
+newArr[row][col] = "|";
+}
+else {
+newArr[row][col] = " ";
+}
+}
+}
+}
+for (int i = 0; i < newArr.length; i++) {
+for (int j = 0; j < newArr[0].length; j++) {
+System.out.print(newArr[i][j]);
+}
+System.out.println();
+}
 
 }
