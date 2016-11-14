@@ -15,7 +15,7 @@ public class CaveRoom {
 	public static final int SOUTH = 2;
 	public static final int WEST = 3;
 
-
+	//update
 	public CaveRoom(String description){
 		this.description = description;
 		setDefaultContents(" ");
