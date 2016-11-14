@@ -1,7 +1,7 @@
 package caveExplorer;
 
 public class CaveRoom {
-
+	
 	private String description;
 	private String directions;
 	private String contents;
@@ -18,11 +18,15 @@ public class CaveRoom {
 
 	public CaveRoom(String description){
 		this.description = description;
-		setDefaultContents("   ");
+		setDefaultContents(" ");
 		contents = defaultContents;
 		
 		borderingRooms = new CaveRoom[4];
 		doors = new Door[4];
+		for(int i = 0 ; i < borderingRooms.length; i++){
+			borderingRooms[i] = null;
+			doors[i] = null;
+		}
 		setDirections();
 	}
 
@@ -36,20 +40,25 @@ public class CaveRoom {
 		}else{
 			for(int dir = 0; dir < doors.length; dir++){
 				if(doors[dir] != null){
-//					directions += "\n   There is a "+doors[dir].getDescription()+" to "+toDirection(dir)+". "
-//							+doors[dir].getDetails();
+					directions += "\n   There is a "+doors[dir].getDescription()+" to "+toDirection(dir)+". "+doors[dir].getDetails();
 				}
 			}
 		}
 	
 	}
 
+	public static String toDirection(int dir) {
+		String[] directions = {"the North","the East","the South","the West"};
+		return directions[dir];
+		
+ 	}
+
 	public String getContents(){
 		return contents;
 	}
 	
 	public void enter(){
-		contents = " X ";
+		contents = "X";
 	}
 	
 	public void leave(){
@@ -106,8 +115,38 @@ public class CaveRoom {
 	}
 
 	public void interpretInput(String input) {
-		// TODO Auto-generated method stub
+		while(!isValid(input)){
+			System.out.println("You can only enter " + "'w','a','s', or 'd'");
+			input = CaveExplorer.in.nextLine();
+		}
 		
+		String[] keys = {"w","d","s","a"};
+		int indexFound = -1;
+		
+		for(int i = 0; i < keys.length; i++){
+			if(input.equals(keys[i])){
+				indexFound = i;
+				break;
+			}
+		}
+		goToRoom(indexFound);
 	}
 
+	public void goToRoom(int direction) {
+		if(borderingRooms[direction] != null && doors[direction].isOpen()){
+			CaveExplorer.currentRoom.leave();
+			CaveExplorer.currentRoom = borderingRooms[direction];
+			CaveExplorer.currentRoom.enter();
+			CaveExplorer.inventory.updateMap();
+		}
+	}
+	private boolean isValid(String input) {
+		String[] keys = {"w", "a", "s", "d"};
+		for (String key: keys) {
+			if (input.equals(key)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
