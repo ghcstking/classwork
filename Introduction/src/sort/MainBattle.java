@@ -2,27 +2,30 @@ package sort;
 
 public class MainBattle {
 	public static void main(String[] args) {
-		 Pokemon squirtle = new Pokemon("Squirtle",26);
+		 Pokemon raticate = new Pokemon("Raticate",26);
 		 Pokemon bulbasaur = new Pokemon("Bulbasaur",26);
-		 squirtle.iChooseYou();
+		 raticate.iChooseYou();
 		 bulbasaur.iChooseYou();
-		 System.out.println("Squirtle is preparing to attack with water blast");
-		 squirtle.attack(bulbasaur, new Attack() {
-		 
-		 public void attack(Pokemon target) {
-		 int hp = target.getHP();
-		 target.setHP(hp/2);
-		 }
-		 });
-		 System.out.println("Bulbasaur is preparing to attack with poison.");
-		 bulbasaur.attack(squirtle, new Attack() {
-		 
-		 public void attack(Pokemon target) {
-		 target.setPoisoned(true);
-		 }
-		 });
-		 squirtle.lapse();
-		 bulbasaur.lapse();
-		// printScore(squirtle, bulbasaur);
+		 System.out.println("Raticate is preparing to attack with super fang");
+		 raticate.attack(bulbasaur, new Attack() {
+			public void attack(Pokemon target) {
+				System.out.println("Super fang is used!");
+				int newHp = target.getHP()/2;
+				target.setHP(newHp);
+			}
+		});
+		bulbasaur.attack(raticate, new Attack() {
+			public void attack(Pokemon target) {
+				System.out.println("Poison powder is used!");
+				target.setPoisoned(true);
+			}
+		});
+		raticate.lapse();
+		bulbasaur.lapse();
+		printScore(raticate, bulbasaur);
+	}
+	public static void printScore(Pokemon p1, Pokemon p2) {
+		System.out.println(p1.getName() + ", HP = " + p1.getHP());
+		System.out.println(p2.getName() + ", HP = " + p2.getHP());
 	}
 }
