@@ -14,7 +14,7 @@ public class RecursionIntro {
 //				System.out.println("Hello everyone!");
 //			}
 //		});
-		hanoi(4, "A", "B", "C");
+		hanoi(8, "A", "B", "C");
 	}
 	public static void hanoi(int numberOfDisks, String from, String mid, String to) {
 		if (numberOfDisks < 2) {
