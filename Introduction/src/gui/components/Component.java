@@ -1,8 +1,9 @@
 package gui.components;
 
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-public class Component implements Visible {
+public abstract class Component implements Visible {
 
 	private int x;
 	private int y;
@@ -10,50 +11,54 @@ public class Component implements Visible {
 	private int h;
 	private BufferedImage image;
 	
-	public Component() {
-		// TODO Auto-generated constructor stub
+	public Component(int x, int y, int w, int h) {
+		this.x = x;
+		this.y = y;
+		this.w = w;
+		this.h = h;
+		this.image = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+		update(image.createGraphics());
 	}
 
 	@Override
 	public BufferedImage getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return image;
 	}
 
 	@Override
 	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
+		return x;
 	}
 
 	@Override
 	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
+		return y;
 	}
 
 	@Override
 	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+		return w;
 	}
 
 	@Override
 	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return h;
 	}
 
 	@Override
 	public boolean isAnimated() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-
+		update(image.createGraphics());
 	}
+	
+	public abstract void update(Graphics2D g);
 
+	public Graphics2D clear() {
+		image = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+		return image.createGraphics();
+	}
 }
