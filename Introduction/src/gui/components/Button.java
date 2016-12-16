@@ -29,17 +29,9 @@ public class Button extends TextLabel implements Clickable {
 		g.setColor(Color.black);
 		g.drawRoundRect(1, 1, getWidth() - 1, getHeight() - 1, 25, 25);
 		g.setFont(new Font(getFont(), Font.PLAIN, getSize()));
-		FontMetrics fm = g.getFontMetrics();
 		if (getText() != null) {
 			g.setColor(Color.white);
-			String t = getText();
-			int cutoff = t.length();
-			while(cutoff>0 && fm.stringWidth(t) > getWidth()) {
-				cutoff--;
-				t = t.substring(0, cutoff);
-			}
-			g.drawString(t, (getWidth() - fm.stringWidth(t))/2, 
-					(getHeight() + fm.getHeight() - fm.getDescent()));
+			g.drawString(getText(), 4, getHeight() - 5);
 		}
 	}
 	@Override
