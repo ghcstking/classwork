@@ -36,12 +36,10 @@ public class Button extends TextLabel implements Clickable {
 	}
 	@Override
 	public boolean isHovered(int x, int y) {
-		// TODO Auto-generated method stub
-		return false;
+		return x>getX() && x<getX() + getWidth() && y > getY() && y < getY() + getHeight();
 	}
 	@Override
 	public void act() {
-		// TODO Auto-generated method stub
-		
+		action.act();
 	}
 }

@@ -5,22 +5,27 @@ import gui.screens.CoordinateScreen;
 
 public class MouseFollower extends GUIApplication {
 
-	private CoordinateScreen cs;
-	public static MouseFollower game;
-	
 	public MouseFollower(int width, int height) {
 		super(width, height);
+		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void initScreen() {
-		cs = new CoordinateScreen(getWidth(), getHeight());
-		setScreen(cs);
-	}
-
-	public static void main(String[] args) {
-		game = new MouseFollower(800,600);
+	public static CoordinateScreen coordScreen;
+	public static MyScreen moveScreen;
+	public static RandomScreen newScreen;
+	public static MouseFollower game;
+	
+	public static void main(String[] args){
+		game = new MouseFollower(800, 600);
 		Thread app = new Thread(game);
 		app.start();
+	}
+	
+	@Override
+	public void initScreen() {
+		moveScreen = new MyScreen(getWidth(), getHeight());
+		coordScreen = new CoordinateScreen(getWidth(), getHeight());
+		newScreen = new RandomScreen(getWidth(), getHeight());
+		setScreen(coordScreen);
 	}
 }
