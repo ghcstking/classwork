@@ -43,7 +43,7 @@ public class ClickableGraphic extends Graphic implements Clickable, Visible {
 	}
 	
 	public void setAction(Action a) {
-		
+		this.act = a;
 	}
 	
 	public BufferedImage getImage() {
