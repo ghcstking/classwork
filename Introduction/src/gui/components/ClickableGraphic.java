@@ -33,8 +33,8 @@ public class ClickableGraphic extends Graphic implements Clickable, Visible {
 
 	@Override
 	public void act() {
-		if(act != null) {
-			act();
+		if(this.act != null) {
+			this.action.act();
 		}
 	}
 	
