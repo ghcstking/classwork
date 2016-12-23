@@ -39,10 +39,12 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 				MouseFollower.game.setScreen(MouseFollower.moveScreen);
 			}
 			});
-		peach = new ClickableGraphic(300,300,100,100,"resources/peach.png", new Action() {
+		peach = new ClickableGraphic(100,100, 5, 5,"resources/peach.png");
+		peach.setAction(new Action() {
 			public void act() {
 				MouseFollower.game.setScreen(MouseFollower.newScreen);
 			}
+			
 		});
 		viewObjects.add(location);
 		viewObjects.add(textArea);
