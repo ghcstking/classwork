@@ -60,8 +60,12 @@ public abstract class ClickableScreen extends Screen implements MouseListener, M
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		for(Clickable c: clickables){
+			if(c.isHovered(e.getX(), e.getY())){
+				c.act();
+				break;
+			}
+		}
 	}
 
 	@Override
