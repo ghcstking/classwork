@@ -74,15 +74,4 @@ public class CoordinateScreen extends Screen
 	public MouseMotionListener getMouseMotionListener(){ 
 		return this;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
