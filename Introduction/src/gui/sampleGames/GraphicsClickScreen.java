@@ -19,7 +19,7 @@ public class GraphicsClickScreen extends Screen implements MouseListener{
 		// TODO Auto-generated constructor stub
 	}
 
-	public void initObjects(List<Visible> viewObjects) {
+	public void initObjects(ArrayList<Visible> viewObjects) {
 		mario = new ClickableGraphic(20, 20, .2, "resources/sampleImages/mario.png");
 		mario.setAction(new Action() {
 			
@@ -60,10 +60,5 @@ public class GraphicsClickScreen extends Screen implements MouseListener{
 		return this;
 	}
 
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

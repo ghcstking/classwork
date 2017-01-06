@@ -7,7 +7,7 @@ public class Mole extends ClickableGraphic implements MoleInterface {
 	private int appearanceTime; 
 	
 	public Mole(int x, int y) {
-		super(x, y, 0.9, "resources/sampleImages/apple.png");
+		super(x, y, 0.1, "resources/sampleImages/apple.png");
 		// TODO Auto-generated constructor stub
 	}
 

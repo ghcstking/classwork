@@ -20,7 +20,7 @@ public abstract class ClickableScreen extends Screen implements MouseListener {
 		// TODO Auto-generated constructor stub
 	}
 
-	public abstract void initAllObjects(List<Visible> viewObjects);
+	public abstract void initAllObjects(ArrayList<Visible> viewObjects);
 	
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {

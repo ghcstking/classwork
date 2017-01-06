@@ -140,10 +140,6 @@ public abstract class Screen {
 		}
 	}
 
-	public void initObjects(List<Visible> viewObjects) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 //	//			ABSTRACTION
 //	// interface - implement as many interfaces as you want

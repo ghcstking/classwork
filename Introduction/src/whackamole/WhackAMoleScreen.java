@@ -15,6 +15,8 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 	 private TextLabel label;
 	 private TextLabel timeLabel;
 	 private double timeLeft;
+
+	
 	
 	public WhackAMoleScreen(int width, int height) {
 		super(width, height);
@@ -24,7 +26,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 	}
 
 	@Override
-	public void initAllObjects(List<Visible> viewObjects) {
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		moles = new ArrayList<MoleInterface>();
 		player = getAPlayer();
 		label = new TextLabel(350,220,100,40,"Sample Text");
@@ -33,7 +35,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 		viewObjects.add(timeLabel);
 		viewObjects.add(label);
 	}
-
+	
 	/**
 	 * This method is a placeholder until our "partner"
 	 * finishes the design of Players. For the time being,
@@ -115,7 +117,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 		
 	}
 
-	private void changeText(String string) {
+	public void changeText(String string) {
 		label.setText(string);
 		try {
 			Thread.sleep(1000);
@@ -124,5 +126,5 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 			e.printStackTrace();
 		}
 	}
-
+	
 }
