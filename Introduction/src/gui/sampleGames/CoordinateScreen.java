@@ -1,4 +1,4 @@
-package gui.screens;
+package gui.sampleGames;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -22,7 +22,6 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 	private TextArea textArea;
 	private TextLabel location;
 	private Graphic toad;
-	private ClickableGraphic peach;
 	public CoordinateScreen(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
@@ -39,22 +38,13 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 				MouseFollower.game.setScreen(MouseFollower.moveScreen);
 			}
 			});
-		peach = new ClickableGraphic(100,100, 5, 5,"resources/peach.png");
-		peach.setAction(new Action() {
-			public void act() {
-				MouseFollower.game.setScreen(MouseFollower.newScreen);
-			}
-			
-		});
 		viewObjects.add(location);
 		viewObjects.add(textArea);
 		viewObjects.add(text);
 		viewObjects.add(toad);
 		viewObjects.add(button);
-		viewObjects.add(peach);
 	}
 	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 	
@@ -104,3 +94,4 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 		
 	}
 }
+

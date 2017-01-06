@@ -3,34 +3,36 @@ package gui.sampleGames;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.List;
 
-import gui.Screen;
 import gui.components.Action;
 import gui.components.ClickableGraphic;
-import gui.components.TextLabel;
 import gui.components.Visible;
+import gui.Screen;
 
-public class RandomScreen extends Screen implements MouseListener {
-	private ClickableGraphic peach;
-	public RandomScreen(int width, int height) {
+public class GraphicsClickScreen extends Screen implements MouseListener{
+
+	private ClickableGraphic mario;
+	
+	public GraphicsClickScreen(int width, int height) {
 		super(width, height);
+		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		peach = new ClickableGraphic(20, 20, .2, "resources/sampleImages/peach.png");
-		peach.setAction(new Action() {
+	public void initObjects(List<Visible> viewObjects) {
+		mario = new ClickableGraphic(20, 20, .2, "resources/sampleImages/mario.png");
+		mario.setAction(new Action() {
 			
 			public void act() {
-				peach.setX(peach.getX() + 10);
+				mario.setX(mario.getX() + 10);
 			}
 		});
-		viewObjects.add(peach);
+		viewObjects.add(mario);
 	}
 
 	public void mouseClicked(MouseEvent m) {
-		if(peach.isHovered(m.getX(), m.getY())){
-			peach.act();
+		if(mario.isHovered(m.getX(), m.getY())){
+			mario.act();
 		}
 	}
 
@@ -56,6 +58,12 @@ public class RandomScreen extends Screen implements MouseListener {
 	
 	public MouseListener getMouseListener(){
 		return this;
+	}
+
+	@Override
+	public void initObjects(ArrayList<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

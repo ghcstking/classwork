@@ -12,7 +12,6 @@ public class MouseFollower extends GUIApplication {
 
 	public static CoordinateScreen coordScreen;
 	public static MyScreen moveScreen;
-	public static RandomScreen newScreen;
 	public static MouseFollower game;
 	
 	public static void main(String[] args){
@@ -25,7 +24,6 @@ public class MouseFollower extends GUIApplication {
 	public void initScreen() {
 		moveScreen = new MyScreen(getWidth(), getHeight());
 		coordScreen = new CoordinateScreen(getWidth(), getHeight());
-		newScreen = new RandomScreen(getWidth(), getHeight());
 		setScreen(coordScreen);
 	}
 }
