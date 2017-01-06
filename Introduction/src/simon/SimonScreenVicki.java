@@ -9,6 +9,7 @@ import gui.components.Visible;
 public class SimonScreenVicki extends ClickableScreen implements Runnable {
 	
 	private ProgressInterfaceVicki progress;
+	private ButtonInterfaceVicki buttons;
 	private ArrayList<MoveInterfaceVicki> moves;
 	private int roundNumber;
 	private boolean acceptedInput;
@@ -52,8 +53,8 @@ public class SimonScreenVicki extends ClickableScreen implements Runnable {
 	}
 
 	private void addButtons() {
-		// TODO Auto-generated method stub
-		
+		int numOfButtons = 6;
+		String[] colors = {"new Color(205,154,154)", "new Color(154,164,205)", "new Color(164,205,154)",
+				"new Color(160,60,155)", "new Color(225,225,155)", "new Color(225,155,155)"};
+		}
 	}
-
-}
