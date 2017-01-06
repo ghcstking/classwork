@@ -1,8 +1,9 @@
 package whackamole;
 
 import gui.components.Action;
+import gui.components.Clickable;
 
-public interface MoleInterface {
+public interface MoleInterface extends Clickable{
 
 	int getAppearanceTime();
 
