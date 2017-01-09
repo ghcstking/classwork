@@ -11,12 +11,14 @@ public class SimonGameVicki extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		// TODO Auto-generated method stub
-		
+		SimonScreenVicki ssv = new SimonScreenVicki(getWidth(), getHeight());
+		setScreen(ssv);
 	}
 	
 	public static void main(String[] args) {
-		
+		SimonGameVicki game = new SimonGameVicki(800,500);
+		Thread app = new Thread(game);
+		app.start();
 	}
 	
 }
