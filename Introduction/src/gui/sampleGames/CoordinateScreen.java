@@ -11,6 +11,7 @@ import gui.components.Action;
 import gui.components.Button;
 import gui.components.ClickableGraphic;
 import gui.components.Graphic;
+import gui.components.MovingComponent;
 import gui.components.TextArea;
 import gui.components.TextLabel;
 import gui.components.Visible;
@@ -38,11 +39,16 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 				MouseFollower.game.setScreen(MouseFollower.moveScreen);
 			}
 			});
+		MovingComponent c = new MovingComponent(20, 20, 100,100);
 		viewObjects.add(location);
 		viewObjects.add(textArea);
 		viewObjects.add(text);
 		viewObjects.add(toad);
 		viewObjects.add(button);
+		viewObjects.add(c);
+		c.setVy(2);
+		c.setVx(1);
+		c.play();
 	}
 	public void mouseDragged(MouseEvent e) {
 		
