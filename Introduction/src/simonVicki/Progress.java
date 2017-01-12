@@ -46,8 +46,8 @@ public class Progress extends Component implements ProgressInterfaceVicki {
 			g.fillRoundRect(0, 0, 150, 95, 20, 20);
 			g.setColor(Color.black);
 			g.drawRoundRect(0,0,150,95,20,20);
-			g.drawString("Round:"+roundNum,5,35);
-			g.drawString("Sequence Length:"+sequence,5,65);
+			g.drawString("Round:"+roundNum,50,35);
+			g.drawString("Sequence Length:"+sequence,25,65);
 		}
 	}
 	

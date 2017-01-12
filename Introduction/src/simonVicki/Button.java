@@ -12,8 +12,6 @@ public class Button extends Component implements ButtonInterfaceVicki {
 	private Action action;
 	private Color c;
 	private boolean highlight;
-	private int x;
-	private int y;
 	
 	public Button() {
 		super(0, 0, 700, 700);

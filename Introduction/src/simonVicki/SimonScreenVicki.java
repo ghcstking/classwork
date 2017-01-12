@@ -56,7 +56,7 @@ public class SimonScreenVicki extends ClickableScreen implements Runnable {
 		for (int i = 0; i < numOfButtons; i++) {
 			buttons[i] = getAButton();
 			buttons[i].setColor(colors[i]);
-			buttons[i].setX((75 * i));
+			buttons[i].setX((75 * i) + 250);
 			buttons[i].setY(50);
 			final ButtonInterfaceVicki b = buttons[i];
 			b.setAction(new Action(){
@@ -84,7 +84,6 @@ public class SimonScreenVicki extends ClickableScreen implements Runnable {
 						}
 						else {
 							progress.gameOver();
-							label = new TextLabel(130, 200, 300, 40, "Game over!");
 						}
 					}
 				}
