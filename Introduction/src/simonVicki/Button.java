@@ -16,7 +16,7 @@ public class Button extends Component implements ButtonInterfaceVicki {
 	private int y;
 	
 	public Button() {
-		super(0, 0, 50, 50);
+		super(0, 0, 700, 700);
 		highlight = false;
 	}
 
@@ -41,19 +41,14 @@ public class Button extends Component implements ButtonInterfaceVicki {
 	}
 
 	@Override
-	public void setCoords(int x, int y) {
-		this.x = x;
-		this.y = y;
-		setX(x);
-		setY(y);
-	}
-
-	@Override
 	public void update(Graphics2D g) {
 		g = clear();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		if(highlight) {
 			g.setColor(this.c);
+			g.fillOval(this.getX(), this.getY(), 65, 65);
+			g.setColor(Color.black);
+			g.drawOval(this.getX(), this.getY(), 65, 65);
 		}
 		else {
 			g.setColor(Color.gray);
@@ -66,11 +61,13 @@ public class Button extends Component implements ButtonInterfaceVicki {
 	@Override
 	public void turnOn() {
 		highlight = true;
+		update();
 	}
 
 	@Override
 	public void turnOff() {
 		highlight = false;
+		update();
 	}
 
 	@Override

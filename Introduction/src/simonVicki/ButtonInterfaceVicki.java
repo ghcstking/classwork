@@ -8,8 +8,9 @@ import gui.components.Clickable;
 public interface ButtonInterfaceVicki extends Clickable {
 	public void setAction(Action a);
 	void setColor(Color i);
-	void setCoords(int x, int y);
 	void turnOn();
 	void turnOff();
 	Color getColor();
+	void setX(int i);
+	void setY(int i);
 }

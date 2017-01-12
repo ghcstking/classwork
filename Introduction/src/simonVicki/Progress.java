@@ -13,7 +13,7 @@ public class Progress extends Component implements ProgressInterfaceVicki {
 	private int roundNum;
 	
 	public Progress() {
-		super(60, 60, 120, 50);
+		super(325, 150, 200, 100);
 		gameOver = false;
 	}
 
@@ -33,20 +33,19 @@ public class Progress extends Component implements ProgressInterfaceVicki {
 	public void update(Graphics2D g) {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		if(gameOver){
-			g.setColor(Color.red);
-			g.fillRoundRect(0, 0, 198, 98, 20, 20);
+			g.setColor(Color.gray);
+			g.fillRoundRect(0, 0, 95, 100, 20, 20);
 			g.setColor(Color.black);
-			g.drawRoundRect(0,0,198,98,20,20);	
+			g.drawRoundRect(0,0,150,95,20,20);	
 			g.drawString("Yikes. Game over!",5,35);
 			g.drawString("Round: "+roundNum,5,55);
 			g.drawString("Sequence Length: "+sequence,5,75);
 		}
 		else{
-			g.setColor(Color.gray);
-			g.fillRoundRect(0, 0, 198, 98, 20, 20);
+			g.setColor(Color.cyan);
+			g.fillRoundRect(0, 0, 150, 95, 20, 20);
 			g.setColor(Color.black);
-			g.drawRoundRect(0,0,198,98,20,20);
-			
+			g.drawRoundRect(0,0,150,95,20,20);
 			g.drawString("Round:"+roundNum,5,35);
 			g.drawString("Sequence Length:"+sequence,5,65);
 		}
