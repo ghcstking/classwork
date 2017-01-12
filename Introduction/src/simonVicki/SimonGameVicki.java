@@ -20,5 +20,4 @@ public class SimonGameVicki extends GUIApplication {
 		Thread app = new Thread(game);
 		app.start();
 	}
-	
 }
